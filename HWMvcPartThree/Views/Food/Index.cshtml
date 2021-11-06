@@ -1,0 +1,45 @@
+﻿@model List<HWMvcPartThree.Models.ViewModels.FoodViewModel>
+@using System.Threading
+<br />
+<a class="btn btn-primary" asp-controller="Food" asp-action="Create">Create</a>
+<br>
+<br>
+<div class="col-md-3">
+    
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Cost</th>
+            <th>Cotegories</th>
+            <th>Insert Date</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var food in Model)
+        {
+<tr>
+    <td>
+        @food.Id
+    </td>
+    <td>
+        @food.NameP
+    </td>
+    <td>
+        @food.Cost
+    </td>
+    <td>
+        <a asp-action="Index" asp-controller="Food" asp-route-cotegoriesId="@food.FoodCotegoryId">@food.FoodCotegoryName</a>
+    </td>
+    <td>
+        @food.InsertDate.ToString("dd/MM/yyyy HH:mm:ss")
+    </td>
+    <td><a class="btn btn-info" href="~/Food/Edit?id=@food.Id">Edit</a></td>
+    <td><a class="btn btn-danger" href="~/Food/Delete?id=@food.Id">Delete</a></td>
+</tr>}
+    </tbody>
+</table>

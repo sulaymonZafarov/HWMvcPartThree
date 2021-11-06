@@ -1,0 +1,23 @@
+﻿@model HWMvcPartThree.Models.ViewModels.FoodViewModel
+
+<form method="post" asp-action="Create" asp-controller="Food">
+
+    <div asp-validation-summary="All" />
+    <div class="row">
+        <div class="col-sm-1">
+            <label>Product Name</label>
+        </div>
+        <div class="col-md-4">
+            <input class="form-control" asp-for="NameP" />
+            <span asp-validation-for="NameP"></span>
+        </div>
+    </div>
+    <label>Cost</label>
+    <input class="form-control" asp-for="Cost" />
+    <span asp-validation-for="Cost"></span> <br />
+    <select data-live-search="true" class="form-control selectpicker" asp-for="FoodCotegoryId" asp-items="@Model.Cotegories">
+    </select>
+    <span asp-validation-for="Cost"></span> <br />
+    <input class="btn btn-success" type="submit" title="Create" value="Create" />
+    <input class="btn btn-danger" type="reset" title="" value="Cancel" />
+</form>
